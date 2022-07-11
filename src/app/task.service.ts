@@ -13,7 +13,12 @@ export class TaskService {
 
   //to fetch all task lists
   getAllTaskLists(): Observable<TaskListModel[]> { 
-    return this.apiConfigServices.get('tasklists');
+    return this.apiConfigServices.getTaskLists('tasklists');
+  }
+
+  //to fetch all tasks
+  getAllTasks(taskListId: string): Observable<TaskModel[]> { 
+    return this.apiConfigServices.getTasks(`tasklists/${taskListId}`);
   }
 
   //create a task list bucket
@@ -25,7 +30,7 @@ export class TaskService {
   //To fetch al task inside a task list object
   //http://localhost:3000/tasklists/62c5049e60cb1f9ef7043d9a/tasks
   getAllTaskForATaskList(taskListId: string){
-    return this.apiConfigServices.get(`tasklists/${taskListId}/tasks`);
+    return this.apiConfigServices.getTasks(`tasklists/${taskListId}/tasks`);
   }
 
   //Create a task inside a particular task List object
