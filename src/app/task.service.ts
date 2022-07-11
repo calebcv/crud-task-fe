@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiConfigService } from './api-config.service';
+import TaskListModel from './models/taskListModel';
 import TaskModel from './models/taskModel';
 
 @Injectable({
@@ -10,8 +12,8 @@ export class TaskService {
   constructor( private apiConfigServices: ApiConfigService) { }
 
   //to fetch all task lists
-  getAllTaskLists(){
-    this.apiConfigServices.get('tasklists');
+  getAllTaskLists(): Observable<TaskListModel[]> { 
+    return this.apiConfigServices.get('tasklists');
   }
 
   //create a task list bucket
