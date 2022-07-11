@@ -19,7 +19,11 @@ export class ApiConfigService {
   }
   
   put(url : string, data: Object){
-    return this.HttpClient.put(`${this.API_BASE_URL}/${url}`, data); //http://localhost:3000/tasklists/62c5049e60cb1f9ef7043d9a/tasks
+    return this.HttpClient.put(`${this.API_BASE_URL}/${url}`, data);
+  }
+
+  patch(url : string, data: Object){
+    return this.HttpClient.patch(`${this.API_BASE_URL}/${url}`, data);
   }
 
   delete(url : string){
