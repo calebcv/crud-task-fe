@@ -11,15 +11,15 @@ export class ApiConfigService {
 
   //API call to Backend
   get(url : string){
-    return this.HttpClient.get(`${this.API_BASE_URL}/${url}`);
+    return this.HttpClient.get(`${this.API_BASE_URL}/${url}`); //http://localhost:3000/tasklists
   }
 
   post(url : string, data: Object){
-    return this.HttpClient.post(`${this.API_BASE_URL}/${url}`, data);
+    return this.HttpClient.post(`${this.API_BASE_URL}/${url}`, data); //http://localhost:3000/tasklists
   }
   
   put(url : string, data: Object){
-    return this.HttpClient.put(`${this.API_BASE_URL}/${url}`, data);
+    return this.HttpClient.put(`${this.API_BASE_URL}/${url}`, data); //http://localhost:3000/tasklists/62c5049e60cb1f9ef7043d9a/tasks
   }
 
   delete(url : string){
