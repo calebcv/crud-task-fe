@@ -49,8 +49,9 @@ export class TaskService {
     return this.apiConfigServices.delete(`tasklists/${taskListId}/tasks/${taskId}`);
   }
 
+
   //update the status of a task whether its completed or not
-  updateTaskStatus(taskListId: string, taskObject: TaskModel){
+  updateTaskStatus(taskListId: string, taskObject: TaskModel): Observable<TaskModel>{
     let updateData = { 'completed': !taskObject.completed }; //toggle the database value
     return this.apiConfigServices.patch(`tasklists/${taskListId}/tasks/${taskObject._id}`,updateData);
   }

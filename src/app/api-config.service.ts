@@ -29,7 +29,7 @@ export class ApiConfigService {
   }
 
   patch(url : string, data: Object){
-    return this.HttpClient.patch(`${this.API_BASE_URL}/${url}`, data);
+    return this.HttpClient.patch<TaskModel>(`${this.API_BASE_URL}/${url}`, data);
   }
 
   delete(url : string){
