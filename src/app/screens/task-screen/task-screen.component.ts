@@ -53,6 +53,7 @@ export class TaskScreenComponent implements OnInit {
       }
     );
   }
+
   deleteTaskList(TaskListClicked: TaskListModel){
     this.taskService.deleteTaskList(TaskListClicked._id)
     .subscribe(
@@ -60,5 +61,15 @@ export class TaskScreenComponent implements OnInit {
         this.taskLists = this.taskLists.filter(tL => tL._id != TaskListClicked._id);
       }
     );
+  }
+
+  addNewTask(){
+    if(this.taskListId){
+      //route the usar to add task screen for the selected task-list
+      this.router.navigate(['./new-task'], { relativeTo: this.activateRoute })
+    }else{
+      alert("please select a taskList!");
+      return;
+    }
   }
 }
