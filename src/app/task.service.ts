@@ -39,14 +39,14 @@ export class TaskService {
   }
 
   //delete a task list
-  deleteTaskList(taskListId: string){
-    return this.apiConfigServices.delete(`tasklists/${taskListId}`);
+  deleteTaskList(taskListId: string): Observable<TaskListModel>{
+    return this.apiConfigServices.deleteTaskList(`tasklists/${taskListId}`);
   }
 
   //delete a Task inside a particular TaskList
   //http://localhost:3000/tasklists/62c365e3de38d1db2a0d32c3/tasks/62c4f34e95c2c2287abdd71d
-  deleteTaskInsideTaskList(taskListId: string, taskId: string){
-    return this.apiConfigServices.delete(`tasklists/${taskListId}/tasks/${taskId}`);
+  deleteTaskInsideTaskList(taskListId: string, taskId: string): Observable<TaskModel>{
+    return this.apiConfigServices.deleteTask(`tasklists/${taskListId}/tasks/${taskId}`);
   }
 
 
