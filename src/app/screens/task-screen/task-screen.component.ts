@@ -26,7 +26,7 @@ export class TaskScreenComponent implements OnInit {
       .subscribe((allTaskLists: TaskListModel[])=> {
         this.taskLists = allTaskLists 
         //get the 1st Task list id and route to it on page load
-        this.router.navigate(['task-list', this.taskLists[0]['_id']]);
+        //this.router.navigate(['task-list', this.taskLists[0]['_id']]);
       });
           
     this.activateRoute.params.subscribe(
