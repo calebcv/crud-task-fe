@@ -22,7 +22,7 @@ export class TaskService {
   }
 
   //create a task list bucket
-  CreateTaskList(title: string){
+  CreateTaskList(title: string): Observable<TaskListModel>{
     let data = { 'title': title };
     return this.apiConfigServices.post('tasklists',data);
   }
