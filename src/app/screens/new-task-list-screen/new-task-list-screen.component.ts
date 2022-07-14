@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import TaskListModel from 'src/app/models/taskListModel';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'app-new-task-list-screen',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewTaskListScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private taskService: TaskService
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  addNewTaskList(title: string){
+    if(title){
+      this.taskService.CreateTaskList(title)
+      .subscribe(
+        (newlyCreatedTaskList: TaskListModel) => {
+          this.router.navigate(['task-list', newlyCreatedTaskList._id]);
+        }
+      );
+    }else{
+      alert("title cannot be empty!");
+    }
   }
 
 }
